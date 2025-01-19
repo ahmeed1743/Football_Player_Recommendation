@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filter Players</title>
+    <link rel="stylesheet" href="assets/css/services.css" />
+    <link rel="icon" href="assets/imgs/Main/logo.png">
+
+</head>
+
+<body>
+    <div class="Container" id="main-container">
+        <header>
+            <ul>
+                <li><a class="headerlink" href="index.html">Home</a></li>
+                <!-- <li><a class="headerlink" href="Scout.html">Scout</a></li> -->
+                <li>
+                    <a class="headerlink activelink" href="Filter.html">Players</a>
+                </li>
+                <li><a class="headerlink" href="clubs.html">Clubs</a></li>
+            </ul>
+        </header>
+        <main>
+            <div class="main-content">
+                <div class="landing-txt">
+                    <h1>Player Ratings Reveal</h1>
+                    <p>
+                        Explore the complete Ratings and PlayStyles for the players
+                        available in Our Scouting App
+                    </p>
+                </div>
+                <section id="search-section" style="margin-top: 30px;">
+                    <div class="searchBox">
+                        <input id="player-search" class="searchInput" type="text" name=""
+                            placeholder="Search for a player..." />
+                        <button id="searchButton">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29"
+                                fill="none">
+                                <g clip-path="url(#clip0_2_17)">
+                                    <g filter="url(#filter0_d_2_17)">
+                                        <path
+                                            d="M23.7953 23.9182L19.0585 19.1814M19.0585 19.1814C19.8188 18.4211 20.4219 17.5185 20.8333 16.5251C21.2448 15.5318 21.4566 14.4671 21.4566 13.3919C21.4566 12.3167 21.2448 11.252 20.8333 10.2587C20.4219 9.2653 19.8188 8.36271 19.0585 7.60242C18.2982 6.84214 17.3956 6.23905 16.4022 5.82759C15.4089 5.41612 14.3442 5.20435 13.269 5.20435C12.1938 5.20435 11.1291 5.41612 10.1358 5.82759C9.1424 6.23905 8.23981 6.84214 7.47953 7.60242C5.94407 9.13789 5.08145 11.2204 5.08145 13.3919C5.08145 15.5634 5.94407 17.6459 7.47953 19.1814C9.01499 20.7168 11.0975 21.5794 13.269 21.5794C15.4405 21.5794 17.523 20.7168 19.0585 19.1814Z"
+                                            stroke="white" stroke-width="3" stroke-linecap="round"
+                                            stroke-linejoin="round" shape-rendering="crispEdges"></path>
+                                    </g>
+                                </g>
+                                <defs>
+                                    <filter id="filter0_d_2_17" x="-0.418549" y="3.70435" width="29.7139"
+                                        height="29.7139" filterUnits="userSpaceOnUse"
+                                        color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha">
+                                        </feColorMatrix>
+                                        <feOffset dy="4"></feOffset>
+                                        <feGaussianBlur stdDeviation="2"></feGaussianBlur>
+                                        <feComposite in2="hardAlpha" operator="out"></feComposite>
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
+                                        <feBlend mode="normal" in2="BackgroundImageFix"
+                                            result="effect1_dropShadow_2_17"></feBlend>
+                                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2_17"
+                                            result="shape"></feBlend>
+                                    </filter>
+                                    <clipPath id="clip0_2_17">
+                                        <rect width="28.0702" height="28.0702" fill="white"
+                                            transform="translate(0.403503 0.526367)"></rect>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div id="auto-complete-results" class="auto-complete-results"></div>
+                </section>
+            </div>
+            <div class="AboveTable">
+                <div class="set">
+                    <button id="filterBtn">Filter</button>
+                    <div onclick="clearFilters()" class="resetAll">Reset All</div>
+                </div>
+                <div id="rowCount" class="row-count">
+                    Showing<span id="rowNumber">0</span>results
+                </div>
+            </div>
+            <div id="filterPanel" class="filter-panel">
+                <div id="closeFilter">x</div>
+                <h3>Filter Players</h3>
+
+                <!-- Existing filters -->
+                <div class="filter-section">
+                    <label for="season">Season</label>
+                    <select id="season">
+                        <option value="">All Seasons</option>
+                    </select>
+                </div>
+                <div class="filter-section">
+                    <label for="nationality">Nationality</label>
+                    <select id="nationality">
+                        <option value="">All Nationalities</option>
+                    </select>
+                </div>
+                <div class="filter-section">
+                    <label for="position">Position</label>
+                    <select id="position">
+                        <option value="">All Positions</option>
+                    </select>
+                </div>
+                <div class="filter-section">
+                    <label for="team">Team</label>
+                    <select id="team">
+                        <option value="">All Teams</option>
+                    </select>
+                </div>
+                <div class="filter-section">
+                    <label for="league">League</label>
+                    <select id="league">
+                        <option value="">All Leagues</option>
+                    </select>
+                </div>
+                <div class="filter-section">
+                    <label for="ageInterval">Age</label>
+                    <select id="ageInterval">
+                        <option value="">All Ages</option>
+                        <option value="18-25">18-25</option>
+                        <option value="26-30">26-30</option>
+                        <option value="31-35">31-35</option>
+                        <option value="36-40">36-40</option>
+                    </select>
+                </div>
+
+                <!-- Sorting Options -->
+                <div class="filter-section">
+                    <label for="sortBy">Sort By</label>
+                    <select id="sortBy">
+                        <option value="">None</option>
+                        <option value="Performance_Gls">Goals</option>
+                        <option value="Performance_Ast">Assists</option>
+                        <option value="Expected_xG">xG</option>
+                        <option value="PlayingTime_Min">Minutes Played</option>
+                        <option value="age">Age</option>
+                    </select>
+                </div>
+
+                <button onclick="filterPlayers()">Apply Filters</button>
+                <button onclick="clearFilters()">Clear Filters</button>
+                <div class="space" style="height: 30px"></div>
+            </div>
+
+            <section class="player-table">
+                <div class="filter-button"></div>
+                <table id="playersTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Player</th>
+                            <th>Nation</th>
+                            <th>Team</th>
+                            <th>League</th>
+                            <th>Season</th>
+                            <th>Position</th>
+                            <th>Age</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                            <th>Pace (Km/h)</th>
+                            <th>Minutes Played</th>
+                            <th>xG</th>
+                        </tr>
+                    </thead>
+                    <tbody id="players-body"></tbody>
+                </table>
+            </section>
+
+            <div class="pagination">
+                <button id="prevPage"aria-label="Previous">
+                    &#9664;
+                    <!-- Left arrow -->
+                </button>
+                <span id="currentPage">1</span>
+                <button id="nextPage" aria-label="Next">
+                    &#9654;
+                    <!-- Right arrow -->
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <div id="player-details">
+        <!-- Player details will be inserted here by JavaScript -->
+    </div>
+
+    <script src="assets/js/filter.js"></script>
+</body>
+
+</html>

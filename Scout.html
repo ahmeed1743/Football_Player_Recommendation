@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scouting</title>
+  <link rel="stylesheet" href="assets/css/services.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <main>
+    <div class="Container">
+      <header>
+        <ul>
+          <li><a class="headerlink" href="index.html">Home</a></li>
+          <!-- <li><a class="headerlink activelink" href="Scout.html">Scout</a></li> -->
+          <li><a class="headerlink" href="Filter.html">Filter</a></li>
+        </ul>
+      </header>
+      <!-- Main content -->
+      <div class="main-content">
+        <div class="landing-txt">
+          <h1>Player Ratings Reveal</h1>
+          <p>Explore the complete Ratings and PlayStyles for the players available in Our Scouting App</p>
+        </div>
+        <!-- Search Section -->
+        <section id="search-section">
+          <input type="text" id="player-search" placeholder="Search for a player..." />
+          <div id="auto-complete-results" class="auto-complete-results"></div>
+        </section>
+      </div>
+
+      <div class="Table-Container">
+        <!-- Selected Player Info -->
+        <section id="selected-player-section" class="hidden player-info-section">
+          <div class="player-info">
+            <div id="selected-player-info" class="player-info-cards"></div>
+            <img src="assets/imgs/Main/player.png" class="player-img hidden">
+          </div>
+        </section>
+
+        <!-- Similar Players Section -->
+        <section id="similar-players-section" class="hidden similar-players-section">
+          <h2>Similar Players</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Player</th>
+                <th>Team</th>
+                <th>League</th>
+                <th>Age</th>
+                <th>Nation</th>
+                <th>Position</th>
+                <th>Goals</th>
+                <th>Assists</th>
+                <th>Playing Time</th>
+                <th>Expected xG</th>
+              </tr>
+            </thead>
+            <tbody id="similar-players-body"></tbody>
+          </table>
+        </section>
+
+        <!-- Comparison Graph Section -->
+        <section id="comparison-graph-section" class="hidden chart-section">
+          <canvas id="comparisonChart"></canvas>
+        </section>
+
+        <!-- Spider Chart Section -->
+        <section id="spider-graph-section" class="hidden chart-section">
+          <canvas id="spiderChart"></canvas>
+        </section>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- =========== Scripts =========  -->
+  <script src="assets/js/app.js"></script>
+
+  <!-- ====== ionicons ======= -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

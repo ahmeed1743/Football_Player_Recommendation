@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Details</title>
+    <!-- Include PapaParse for CSV parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <link rel="stylesheet" href="assets/css/clubs.css">
+    <link rel="icon" href="assets/imgs/Main/logo.png">
+
+</head>
+
+<body>
+    <div class="container" id="club-container">
+        <!-- Club Information -->
+        <div class="club-info">
+            <div class="club-header">
+                <div class="left-side">
+                    <div class="club-details">
+                        <img id="clubLogo" src="assets/imgs/logos/placeholder.png" alt="Club Logo" class="club-logo">
+                        <div class="club-details-text">
+                            <h1 id="clubName"></h1>
+                            <p id="clubLeague"></p>
+                            <p id="clubSeason"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-side">
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Average Age</span>
+                            <span class="stat-value" id="averageAge"></span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Goals</span>
+                            <span class="stat-value" id="totalGoals"></span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Assists</span>
+                            <span class="stat-value" id="totalAssists"></span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Pass Accuracy</span>
+                            <span class="stat-value" id="totalPassAccuracy"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Player Rankings Tables -->
+            <div class="player-tables">
+                <!-- Passing Table -->
+                <div id="passingTable" class="ranking-table">
+                    <h3>Passing</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be populated dynamically -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="button-row">
+                                <td colspan="3">
+                                    <button class="view-full-list">View Full List</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Appearances Table -->
+                <div id="appearancesTable" class="ranking-table">
+                    <h3>Appearances</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be populated dynamically -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="button-row">
+                                <td colspan="3">
+                                    <button class="view-full-list">View Full List</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Minutes Played Table -->
+                <div id="minutesPlayedTable" class="ranking-table">
+                    <h3>Minutes Played</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be populated dynamically -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="button-row">
+                                <td colspan="3">
+                                    <button class="view-full-list">View Full List</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Goals Table -->
+                <div id="goalsTable" class="ranking-table">
+                    <h3>Goals</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be populated dynamically -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="button-row">
+                                <td colspan="3">
+                                    <button class="view-full-list">View Full List</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Expected Goals Table -->
+                <div id="expectedGoalsTable" class="ranking-table">
+                    <h3>Expected Goals (xG) </h3>
+                    <table>
+                        <thead>
+                            <tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be populated dynamically -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="button-row">
+                                <td colspan="3">
+                                    <button class="view-full-list">View Full List</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Expected Assists Table -->
+                <div id="expectedAssistsTable" class="ranking-table">
+                    <h3>Expected Assists (xA)</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be populated dynamically -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="button-row">
+                                <td colspan="3">
+                                    <button class="view-full-list">View Full List</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Key Passes Table -->
+                <div id="keyPassesTable" class="ranking-table">
+                    <h3>Key Passes</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be populated dynamically -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="button-row">
+                                <td colspan="3">
+                                    <button class="view-full-list">View Full List</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Shots Table -->
+                <div id="shotsTable" class="ranking-table">
+                    <h3>Shots</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be populated dynamically -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="button-row">
+                                <td colspan="3">
+                                    <button class="view-full-list">View Full List</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Tackles Table -->
+                <div id="tacklesTable" class="ranking-table">
+                    <h3>Tackles</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be populated dynamically -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="button-row">
+                                <td colspan="3">
+                                    <button class="view-full-list">View Full List</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Short Pass Table -->
+                <div id="shortPassTable" class="ranking-table">
+                    <h3>Short Pass Accuracy</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be populated dynamically -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="button-row">
+                                <td colspan="3">
+                                    <button class="view-full-list">View Full List</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Long Pass Table -->
+                <div id="longPassTable" class="ranking-table">
+                    <h3>Long Pass Accuracy</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be populated dynamically -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="button-row">
+                                <td colspan="3">
+                                    <button class="view-full-list">View Full List</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Medium Pass Table -->
+                <div id="mediumPassTable" class="ranking-table">
+                    <h3>Medium Pass Accuracy</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be populated dynamically -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="button-row">
+                                <td colspan="3">
+                                    <button class="view-full-list">View Full List</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Pace Table -->
+                <div id="paceTable" class="ranking-table">
+                    <h3>Pace (km/h)</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be populated dynamically -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="button-row">
+                                <td colspan="3">
+                                    <button class="view-full-list">View Full List</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="assets/js/club-details.js"></script>
+</body>
+
+</html>

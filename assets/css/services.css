@@ -1,0 +1,759 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --base-clr: #11121a;
+  --line-clr: #42434a;
+  --hover-clr: #222533;
+  --text-clr: #e6e6ef;
+  --accent-clr: #5e63ff;
+  --secondary-text-clr: #b0b3c1;
+  --gradient-color-1: #ff6b6b;
+  --gradient-color-2: #ffa86b;
+  --blue: #2a2185;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+  --green: #00FF87;
+  --purple: #963CFF;
+  --cyan: #05EDFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5rem;
+}
+
+body {
+  color: var(--text-clr);
+  margin: 0;
+  background: url(/assets/imgs/Main/hero.png);
+  background-attachment: fixed;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  font-family: Poppins, sans-serif;
+}
+
+/************************************************************************************************
+                                Scouting Dashboard
+************************************************************************************************/
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header ul a {
+  padding: 5px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.5s;
+  color: var(--text-clr);
+  font-size: 20px;
+  font-weight: 300;
+}
+
+header ul a.activelink {
+  background: linear-gradient(45deg, var(--gradient-color-1), var(--gradient-color-2));
+  color: var(--text-clr);
+
+}
+
+.hidden,
+#hidden {
+  display: none;
+}
+
+.main-content {
+  width: 50%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .main-content{
+    width: 100%;
+    padding: 0px;
+  }
+  
+}
+
+.main-content h1 {
+  color: var(--text-clr);
+  margin: 40px 0;
+}
+
+.main-content p {
+  color: var(--black2);
+  margin: 10px;
+}
+
+.Table-Container {
+  padding: 20px 100px;
+}
+
+/* Table Styles */
+.player-table {
+  width: 100%;
+  font-size: 14px;
+
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /* background-color: #1e1e1e; */
+}
+
+thead th {
+  background-color: #2a2a2a;
+  padding: 10px;
+  text-align: left;
+  color: var(--gradient-color-2);
+  text-transform: uppercase;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  font-weight: 300;
+  position: sticky;
+  top: -1px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #333;
+  transition: 0.5s;
+}
+
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#Player_Name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#Timg {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  vertical-align: middle;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+tbody td {
+  padding: 10px;
+}
+/* Existing CSS remains the same */
+
+/* Responsive Table Styles */
+@media (max-width: 768px) {
+  .player-table {
+    overflow-x: auto;
+    display: block;
+  }
+
+  table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+  }
+
+  thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tbody tr {
+    border: 3px solid #ccc;
+    margin-bottom: 10px;
+  }
+
+  td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  td:before {
+    position: relative;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    content: attr(data-label);
+    font-weight: bold;
+    color: var(--gradient-color-2);
+  }
+
+  td#Player_Name {
+    padding-left: 10px;
+  }
+
+  td#Player_Name:before {
+    content: none;
+  }
+}
+/* Tablet Responsive Styles (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .player-table {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    display: block;
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+    min-width: 768px; /* Ensure the table doesn't shrink too much */
+    border-collapse: collapse;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    background-color: #2a2a2a; /* Match the header background */
+    z-index: 1; /* Ensure the header stays above the table body */
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #333;
+  }
+
+  tbody td {
+    padding: 10px;
+    text-align: left;
+  }
+
+  /* Add a subtle hover effect for better interactivity */
+  tbody tr:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Ensure images in the table don't overflow */
+  #team-logo-cell img,
+  #league-logo-cell img,
+  #flag-cell img {
+    max-width: 30px; /* Slightly smaller images for tablets */
+    height: auto;
+  }
+}
+
+
+.landing {
+  width: 50%;
+  text-align: center;
+  margin: 0px auto;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-controls button {
+  background:linear-gradient(45deg, var(--gradient-color-1), var(--gradient-color-2));
+  border: none;
+  color: #000;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.main-content h2 {
+  color: var(--black1);
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Input Search Bar */
+/* From Uiverse.io by OnlyCodeChannel */
+.searchBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #2f3640;
+  border-radius: 50px;
+  position: relative;
+  width: 100%;
+}
+
+#searchButton {
+  color: white;
+  position: absolute;
+  right: 8px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background:linear-gradient(90deg, var(--gradient-color-1), var(--gradient-color-2));
+  border: 0;
+  display: inline-block;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  cursor: pointer;
+}
+
+/*hover effect*/
+.searchBox  button:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+  transform: translateY(-3px);
+}
+
+/*button pressing effect*/
+.searchBox  button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  font-size: 15px;
+  padding: 24px 46px 24px 26px;
+  width: 100%;
+  border-radius: inherit;
+  background:var(--black1);
+  color: var(--text-clr);
+}
+
+
+/* Auto-complete results */
+.auto-complete-results {
+  background-color: var(--base-clr);
+  color: var(--text-clr);
+  position: absolute;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.auto-complete-results div {
+  padding: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.auto-complete-results div:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+
+/* Chart Sections */
+.chart-section {
+  margin-bottom: 50px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 600px;
+}
+
+/* Table for Similar Players */
+.similar-players-section {
+  margin-bottom: 50px;
+}
+
+
+/* Selected Player Section */
+#selected-player-section {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 60px 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin: 35px 0px;
+  color: var(--text-clr);
+}
+
+.player-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  position: relative;
+}
+
+#PlayerInfo {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  gap: 10px;
+  transform: translateY(-50%);
+}
+
+#PlayerInfo img {
+  width: 32px;
+}
+
+.player-info #Position,
+.player-info #Nation,
+.player-info #Age,
+.player-info #Team,
+.player-info #League {
+  position: relative;
+  background: rgba(150, 150, 150, 0.5);
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.player-info #PTeam {
+  font-size: 24px;
+  font-weight: 200;
+}
+
+.player-info #Name {
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 12px;
+}
+
+.player-info #Stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(150, 150, 150, 0.5);
+  padding: 20px;
+  border-radius: 16px;
+  position: relative;
+  top: 100px;
+}
+
+.player-info .player-img {
+  width: 250px;
+  position: relative;
+}
+
+.player-info .label {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0px;
+  line-height: 0px;
+}
+
+.player-info #Stats div {
+  font-weight: bolder;
+  line-height: 18px;
+  font-size: 30px;
+}
+
+/* Make sure the table adjusts on smaller screens */
+@media (max-width: 768px) {
+  #selected-player-info {
+    grid-template-columns: 1fr;
+    /* Stack the player info blocks on smaller screens */
+  }
+}
+
+/************************************************************************************************
+                                Scouting Dashboard
+************************************************************************************************/
+
+/************************************************************************************************
+                                Filter Dashboard 
+************************************************************************************************/
+.filter-panel button,
+.filter-section select,
+.filter-section input {
+  background:linear-gradient(45deg, var(--gradient-color-1), var(--gradient-color-2));
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 8px;
+  width: 100%;
+  margin: 5px 0px;
+  font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.AboveTable {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.AboveTable .set {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+}
+
+.row-count {
+  font-size: 14px;
+  color: gray;
+  justify-self: end;
+}
+
+#rowNumber {
+  margin: 0px 5px;
+}
+
+.resetAll,
+#filterBtn {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.5s;
+  font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#filterBtn {
+  background:linear-gradient(90deg, var(--gradient-color-1), var(--gradient-color-2));
+  border: none;
+  color: var(--text-clr);
+  font-weight: bold;
+}
+
+.filter-panel button:hover,
+.filter-section select:focus,
+.filter-section input:focus {
+  background-color: var(--gradient-color-1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+  border-color: var(--gradient-color-2);
+  outline: none;
+}
+
+.filter-panel {
+  position: fixed;
+  left: -500px;
+  top: 0;
+  width: 350px;
+  height: 100%;
+  background-color: #2b2b2b;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: left 0.3s ease, background-color 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+.filter-panel.active {
+  left: 0;
+}
+
+.filter-panel h3 {
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 1.5em;
+}
+
+.filter-section {
+  margin-bottom: 15px;
+}
+
+.filter-section label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ddd;
+}
+
+.filter-section select,
+.filter-section input {
+  width: 100%;
+  padding: 12px;
+  background-color: #3c3c3c;
+  border: 1px solid #555;
+  color: #fff;
+  border-radius: 5px;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpolyline points="6 9 12 15 18 9"/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.filter-section select:focus,
+.filter-section input:focus {
+  background-color: #444;
+  border-color: var(--gradient-color-1);
+}
+
+.input-menu {
+  margin-top: 15px;
+}
+
+.menu-toggle {
+  background-color: #3c3c3c;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-toggle:hover {
+  background-color: var(--gradient-color-1);
+  transform: scale(1.05);
+}
+
+.input-menu-content {
+  display: none;
+  margin-top: 10px;
+}
+
+.input-menu-content .filter-section {
+  margin-bottom: 10px;
+}
+
+#closeFilter {
+  font-size: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#closeFilter:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .filter-panel {
+    width: 90%;
+    left: -720px;
+  }
+
+  .filter-section {
+    margin-bottom: 10px;
+  }
+}
+
+/* Scrollbar Styles */
+.filter-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.filter-panel::-webkit-scrollbar-track {
+  background: #3c3c3c;
+  border-radius: 8px;
+}
+
+.filter-panel::-webkit-scrollbar-thumb {
+  background:linear-gradient(45deg, var(--gradient-color-1), var(--gradient-color-2));
+  border-radius: 8px;
+  border: 2px solid #3c3c3c;
+  transition: background-color 0.3s;
+}
+
+.filter-panel::-webkit-scrollbar-thumb:hover {
+  background-color: var(--gradient-color-1);
+}
+
+
+.Container {
+  padding: 20px 0;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.pagination button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+  background-color: #0056b3;
+}
+
+.pagination button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+#currentPage {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+#team-logo-cell img,
+#league-logo-cell img,
+#flag-cell img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  vertical-align: middle;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+

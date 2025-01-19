@@ -1,0 +1,479 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --background-color: #0a0a0a;
+    --card-background: #1E1E1E;
+    --text-color: #e0e0e0;
+    --accent-color: #ffa86b;
+    --secondary-text-color: #b0b0b0;
+    --gradient-color-1: #ff6b6b;
+    --gradient-color-2: #ffa86b;
+    --stat-bar-color: #333333;
+    --hover-shadow: 0 8px 16px rgba(255, 107, 107, 0.2);
+}
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 0 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header ul a {
+    padding: 5px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.5s;
+    color: var(--text-clr);
+    font-size: 20px;
+    font-weight: 300;
+}
+
+header ul a.activelink {
+    background: linear-gradient(45deg, var(--gradient-color-1), var(--gradient-color-2));
+    color: var(--text-clr);
+
+}
+
+.hidden,
+#hidden {
+    display: none;
+}
+
+.main-content {
+    width: 50%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.main-content h1 {
+    color: var(--text-clr);
+    margin: 40px 0;
+}
+
+.main-content p {
+    color: var(--secondary-text-color);
+    margin: 10px;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+@media (max-width: 768px) {
+    .main-content {
+        width: 100%;
+        padding: 0px;
+    }
+    .container{
+        padding: 0px;
+    }
+    header{
+        width: auto;
+    }
+
+}
+.filters {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--background-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.filters label {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filters select {
+    padding: 8px 12px;
+    border: 2px solid var(--stat-bar-color);
+    border-radius: 8px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    /* Remove default arrow */
+    background-image: url("data:image/svg+xml;charset=UTf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23888888'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+.filters select:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px rgba(var(--accent-color-rgb), 0.2);
+}
+
+.filters select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 12px rgba(var(--accent-color-rgb), 0.3);
+}
+
+/* Optional: Add a hover effect on the container */
+.filters:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+}
+
+.club-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.club-card {
+    background-color: var(--background-color);
+    border: 1px solid var(--stat-bar-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 270px;
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        background: linear-gradient(45deg, var(--gradient-color-1), var(--gradient-color-2));
+        width: 100%;
+        height: 5px;
+        left: 0;
+        bottom: 0;
+        border-radius: 0px 0px 8px 8px;
+    }
+
+    &::after {
+        position: absolute;
+        content: "→";
+        color: var(--text-color);
+        right: 30px;
+        bottom: 20px;
+        transition: 0.5s;
+    }
+
+    &:hover::after {
+        color: var(--gradient-color-2);
+        right: 20px;
+    }
+}
+
+.club-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.club-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: inherit;
+}
+
+.club-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .club-card {
+        width: 150px;
+        padding: 15px;
+    }
+
+    .club-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .club-name {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .club-card {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+/******************************************************
+******************************************************
+ *                Club-Details-Page
+******************************************************
+/******************************************************/
+#club-container {
+    padding: 40px;
+}
+
+/* Club Information */
+.club-info {
+    margin-bottom: 30px;
+}
+
+.club-info .club-logo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.club-info h1 {
+    text-align: left;
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ff6b6b, #ffa86b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.club-details {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 23px;
+}
+
+.club-details p {
+    font-size: 18px;
+    color: #b0b0b0;
+    font-weight: bold;
+}
+
+/* Player Rankings Tables */
+.player-tables {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Default: 1 column for mobile */
+    gap: 20px;
+    /* Space between tables */
+}
+
+/* For tablets and larger screens */
+@media (min-width: 768px) {
+    .player-tables {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns for tablets and desktops */
+    }
+}
+
+.ranking-table {
+    margin-bottom: 30px;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ranking-table h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--gradient-color-1);
+    margin-bottom: 10px;
+}
+
+.ranking-table table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.ranking-table th,
+.ranking-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--stat-bar-color);
+}
+
+.ranking-table th {
+    background-color: var(--card-background);
+    color: var(--gradient-color-1);
+    font-weight: 600;
+}
+
+
+.first-row {
+    background-color: #f0f8ff;
+    font-weight: bold;
+    color: #000080;
+}
+
+.first-row td {
+    padding: 10px;
+    border-bottom: 2px solid #000080;
+}
+
+/* .first-row td:first-child::before {
+    content: "🏆"; 
+    margin-right: 8px;
+} */
+
+.view-full-list {
+    color: var(--text-color);
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .ranking-table h3 {
+        font-size: 20px;
+    }
+
+    .ranking-table th,
+    .ranking-table td {
+        padding: 8px;
+    }
+
+    .club-info h1 {
+        font-size: 28px;
+    }
+
+    .club-details p {
+        font-size: 16px;
+    }
+
+    .club-info .club-logo {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ranking-table table {
+        overflow-x: auto;
+        display: block;
+    }
+}
+
+.club-header {
+    display: flex;
+    gap: 160px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .club-header {
+        gap: 20px;
+    }
+
+    #club-container {
+        padding: 20px;
+    }
+
+}
+
+/* Right Side Section */
+.right-side {
+    flex: 1;
+    padding: 20px;
+    background-color: var(--card-background);
+    border-radius: 8px;
+}
+
+.team-stats {
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.stat-label {
+    color: var(--secondary-text-color);
+    font-size: 12px;
+}
+
+.stat-value {
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 28px;
+}
+
+@media (max-width: 768px) {
+    .right-side {
+        padding: 0;
+    }
+
+}
