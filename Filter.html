@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="Container" id="main-container">
+    <section class="Container" id="main-container">
         <header>
             <ul>
                 <li><a class="headerlink" href="index.html">Home</a></li>
@@ -24,16 +24,16 @@
             </ul>
         </header>
         <main>
-            <div class="main-content">
-                <div class="landing-txt">
+            <section class="main-content">
+                <section class="landing-txt">
                     <h1>Player Ratings Reveal</h1>
                     <p>
                         Explore the complete Ratings and PlayStyles for the players
                         available in Our Scouting App
                     </p>
-                </div>
+                </section>
                 <section id="search-section" style="margin-top: 30px;">
-                    <div class="searchBox">
+                    <section class="searchBox">
                         <input id="player-search" class="searchInput" type="text" name=""
                             placeholder="Search for a player..." />
                         <button id="searchButton">
@@ -72,56 +72,56 @@
                                 </defs>
                             </svg>
                         </button>
-                    </div>
+                    </section>
 
-                    <div id="auto-complete-results" class="auto-complete-results"></div>
+                    <section id="auto-complete-results" class="auto-complete-results"></section>
                 </section>
-            </div>
-            <div class="AboveTable">
-                <div class="set">
+            </section>
+            <section class="AboveTable">
+                <section class="set">
                     <button id="filterBtn">Filter</button>
-                    <div onclick="clearFilters()" class="resetAll">Reset All</div>
-                </div>
-                <div id="rowCount" class="row-count">
+                    <section onclick="clearFilters()" class="resetAll">Reset All</section>
+                </section>
+                <section id="rowCount" class="row-count">
                     Showing<span id="rowNumber">0</span>results
-                </div>
-            </div>
-            <div id="filterPanel" class="filter-panel">
-                <div id="closeFilter">x</div>
+                </section>
+            </section>
+            <section id="filterPanel" class="filter-panel">
+                <section id="closeFilter">x</section>
                 <h3>Filter Players</h3>
 
                 <!-- Existing filters -->
-                <div class="filter-section">
+                <section class="filter-section">
                     <label for="season">Season</label>
                     <select id="season">
                         <option value="">All Seasons</option>
                     </select>
-                </div>
-                <div class="filter-section">
+                </section>
+                <section class="filter-section">
                     <label for="nationality">Nationality</label>
                     <select id="nationality">
                         <option value="">All Nationalities</option>
                     </select>
-                </div>
-                <div class="filter-section">
+                </section>
+                <section class="filter-section">
                     <label for="position">Position</label>
                     <select id="position">
                         <option value="">All Positions</option>
                     </select>
-                </div>
-                <div class="filter-section">
+                </section>
+                <section class="filter-section">
                     <label for="team">Team</label>
                     <select id="team">
                         <option value="">All Teams</option>
                     </select>
-                </div>
-                <div class="filter-section">
+                </section>
+                <section class="filter-section">
                     <label for="league">League</label>
                     <select id="league">
                         <option value="">All Leagues</option>
                     </select>
-                </div>
-                <div class="filter-section">
+                </section>
+                <section class="filter-section">
                     <label for="ageInterval">Age</label>
                     <select id="ageInterval">
                         <option value="">All Ages</option>
@@ -130,10 +130,10 @@
                         <option value="31-35">31-35</option>
                         <option value="36-40">36-40</option>
                     </select>
-                </div>
+                </section>
 
                 <!-- Sorting Options -->
-                <div class="filter-section">
+                <section class="filter-section">
                     <label for="sortBy">Sort By</label>
                     <select id="sortBy">
                         <option value="">None</option>
@@ -143,15 +143,15 @@
                         <option value="PlayingTime_Min">Minutes Played</option>
                         <option value="age">Age</option>
                     </select>
-                </div>
+                </section>
 
                 <button onclick="filterPlayers()">Apply Filters</button>
                 <button onclick="clearFilters()">Clear Filters</button>
-                <div class="space" style="height: 30px"></div>
-            </div>
+                <section class="space" style="height: 30px"></section>
+            </section>
 
             <section class="player-table">
-                <div class="filter-button"></div>
+                <section class="filter-button"></section>
                 <table id="playersTable">
                     <thead>
                         <tr>
@@ -174,7 +174,7 @@
                 </table>
             </section>
 
-            <div class="pagination">
+            <section class="pagination">
                 <button id="prevPage"aria-label="Previous">
                     &#9664;
                     <!-- Left arrow -->
@@ -184,13 +184,13 @@
                     &#9654;
                     <!-- Right arrow -->
                 </button>
-            </div>
+            </section>
         </main>
-    </div>
+    </section>
 
-    <div id="player-details">
+    <section id="player-details">
         <!-- Player details will be inserted here by JavaScript -->
-    </div>
+    </section>
 
     <script src="assets/js/filter.js"></script>
 </body>
