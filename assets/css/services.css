@@ -32,7 +32,7 @@ html {
 body {
   color: var(--text-clr);
   margin: 0;
-  background: url(../imgs/Main/hero.png);
+  background: url(assets/imgs/Main/hero.png) , #212121;
   background-attachment: fixed;
   height: 100vh;
   background-size: cover;
