@@ -77,6 +77,7 @@ header ul a.activelink {
 .main-content h1 {
     color: var(--text-clr);
     margin: 40px 0;
+    font-size : 32px;
 }
 
 .main-content p {
