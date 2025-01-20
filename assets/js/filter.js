@@ -246,16 +246,7 @@ function displayPlayers(filteredPlayers) {
     filteredPlayers.slice(startIndex, endIndex).forEach((player, index) => {
         const row = document.createElement('tr');
         const playerImageUrl = `https://via.placeholder.com/50x50.png?text=${encodeURIComponent(player.player.charAt(0))}`;
-        const leagueLogoUrl = `assets/imgs/leagues/${capitalizeFirstLetter(player.league)}.png`;
-
-// Helper function to capitalize the first letter of each word
-function capitalizeFirstLetter(str) {
-    return str
-        .toLowerCase() // Ensure the string is lowercase first
-        .split(' ') // Split into words
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
-        .join(' '); // Join back into a single string
-}
+        const leagueLogoUrl = `assets/imgs/leagues/${encodeURIComponent(player.league.toLowerCase())}.png`;
         const teamLogoUrl = `assets/imgs/logos/${encodeURIComponent(player.team.toLowerCase())}.png`;
 
         // Get full country name for the flag
