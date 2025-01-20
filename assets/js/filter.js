@@ -246,38 +246,58 @@ function displayPlayers(filteredPlayers) {
     filteredPlayers.slice(startIndex, endIndex).forEach((player, index) => {
         const row = document.createElement('tr');
         const playerImageUrl = `https://via.placeholder.com/50x50.png?text=${encodeURIComponent(player.player.charAt(0))}`;
-        const teamLogoUrl = `assets/imgs/logos/${encodeURIComponent(player.team.toLowerCase())}.png`;
         const leagueLogoUrl = `assets/imgs/leagues/${encodeURIComponent(player.league.toLowerCase())}.png`;
+        const teamLogoUrl = `assets/imgs/logos/${encodeURIComponent(player.team.toLowerCase())}.png`;
 
         // Get full country name for the flag
         const fullCountryName = countryMapping[player.nation] || player.nation;
         const flagUrl = `assets/imgs/Countries/${fullCountryName}.png`;
         const formattedSeason = `${player.season.slice(0, 2)}/${player.season.slice(2)}`;
-        const age = parseInt(player.age, 10) || 'N/A'; 
-        const goals = parseInt(player.Performance_Gls, 10) || 0; 
-        const assists = parseInt(player.Performance_Ast, 10) || 0; 
+        const age = parseInt(player.age, 10) || 'N/A';
+        const goals = parseInt(player.Performance_Gls, 10) || 0;
+        const assists = parseInt(player.Performance_Ast, 10) || 0;
 
         row.innerHTML = `
             <td>${startIndex + index + 1}</td>
-            <td data-label="Player: " id="Player_Name"><img src="${playerImageUrl}" alt="${player.player}" style="width: 50px; height: 50px; border-radius: 50%; object-fit:contain">${player.player}</td>
-            <td data-label="Team: " id="team-logo-cell"><img src="${teamLogoUrl}" alt="${player.team}" this.parentElement.textContent='${player.team}';"></td>
-            <td data-label="League: " id="league-logo-cell"><img src="${leagueLogoUrl}" alt="${player.league}" this.parentElement.textContent='${player.league}';"></td>
-            <td data-label="Nationality: " id="flag-cell"><img src="${flagUrl}" alt="${fullCountryName}"></td>
-            <td data-label="Season: ">${formattedSeason}</td> 
+            <td data-label="Player: " id="Player_Name">
+                <img src="${playerImageUrl}" alt="${player.player}" style="width: 50px; height: 50px; border-radius: 50%; object-fit:contain">
+                ${player.player}
+            </td>
+            <td data-label="Team: " id="team-logo-cell">
+                <img src="${teamLogoUrl}" alt="${player.team}">
+            </td>
+            <td data-label="League: " id="league-logo-cell">
+                <img src="${leagueLogoUrl}" alt="${player.league}">
+            </td>
+            <td data-label="Nationality: " id="flag-cell">
+                <img src="${flagUrl}" alt="${fullCountryName}">
+            </td>
+            <td data-label="Season: ">${formattedSeason}</td>
             <td data-label="Position: ">${player.pos}</td>
-            <td data-label="Age: ">${age}</td> 
-            <td data-label="Goals: ">${goals}</td> 
-            <td data-label="Assists: ">${assists}</td> 
-            <td data-label="Pace(km/h): ">${player.pace}</td> 
-            <td data-label="Minutes Played: ">${player.PlayingTime_Min || 0} </td>
+            <td data-label="Age: ">${age}</td>
+            <td data-label="Goals: ">${goals}</td>
+            <td data-label="Assists: ">${assists}</td>
+            <td data-label="Pace(km/h): ">${player.pace}</td>
+            <td data-label="Minutes Played: ">${player.PlayingTime_Min || 0}</td>
             <td data-label="XG: ">${player.Expected_xG || 0}</td>
         `;
+
+        // Set the text content of the parent element for team and league logos
+        const teamLogoCell = row.querySelector('#team-logo-cell');
+        const leagueLogoCell = row.querySelector('#league-logo-cell');
+
+        if (teamLogoCell) {
+            teamLogoCell.textContent = player.team;
+        }
+
+        if (leagueLogoCell) {
+            leagueLogoCell.textContent = player.league;
+        }
 
         row.style.cursor = 'pointer';
         row.onclick = function () {
             showPlayerDetails(player);
         };
-        
 
         playersBody.appendChild(row);
     });
