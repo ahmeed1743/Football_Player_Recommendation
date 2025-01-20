@@ -246,8 +246,8 @@ function displayPlayers(filteredPlayers) {
     filteredPlayers.slice(startIndex, endIndex).forEach((player, index) => {
         const row = document.createElement('tr');
         const playerImageUrl = `https://via.placeholder.com/50x50.png?text=${encodeURIComponent(player.player.charAt(0))}`;
-        const teamLogoUrl = `assets/imgs/logos/${encodeURIComponent(player.team.toLowerCase())}.png`;
         const leagueLogoUrl = `assets/imgs/leagues/${encodeURIComponent(player.league.toLowerCase())}.png`;
+        const teamLogoUrl = `assets/imgs/logos/${encodeURIComponent(player.team.toLowerCase())}.png`;
 
         // Get full country name for the flag
         const fullCountryName = countryMapping[player.nation] || player.nation;
